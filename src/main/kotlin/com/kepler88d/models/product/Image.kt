@@ -8,7 +8,6 @@ import org.jetbrains.exposed.dao.id.IntIdTable
 
 object Images : IntIdTable() {
     val product = reference("product", Products)
-    val color = varchar("color", 128)
     val url = varchar("url", 256)
 }
 
@@ -16,6 +15,5 @@ class Image(id: EntityID<Int>): IntEntity(id) {
     companion object: IntEntityClass<Image>(Images)
 
     var product by Product referencedOn Images.product
-    var color by Images.color
     var url by Images.url
 }
