@@ -1,11 +1,10 @@
 package com.kepler88d.factory
 
-import com.kepler88d.models.*
-import kotlinx.coroutines.*
+import com.kepler88d.models.product.Images
+import com.kepler88d.models.product.Products
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils.create as create
 import org.jetbrains.exposed.sql.transactions.*
-import org.jetbrains.exposed.sql.transactions.experimental.*
 
 object DatabaseFactory {
     fun init() {

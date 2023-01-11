@@ -1,13 +1,13 @@
-package com.kepler88d.models
+package com.kepler88d.models.product
 
-import com.kepler88d.models.Products.uniqueIndex
+import com.kepler88d.models.product.Product.Companion.referrersOn
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.IntIdTable
 
 object Images : IntIdTable() {
-    val productId = integer("product_id").uniqueIndex()
+    val product = reference("product", Products)
     val color = varchar("color", 128)
     val url = varchar("url", 256)
 }
@@ -15,7 +15,7 @@ object Images : IntIdTable() {
 class Image(id: EntityID<Int>): IntEntity(id) {
     companion object: IntEntityClass<Image>(Images)
 
-    var productId by Images.productId
+    var product by Product referencedOn Images.product
     var color by Images.color
     var url by Images.url
 }

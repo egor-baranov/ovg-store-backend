@@ -1,21 +1,20 @@
 package com.kepler88d.plugins
 
-import com.kepler88d.models.Image
-import com.kepler88d.models.Images
-import com.kepler88d.models.Product
-import com.kepler88d.models.ProductModel
-import com.kepler88d.models.ProductModels
+import com.kepler88d.models.product.Image
+import com.kepler88d.models.product.Images
+import com.kepler88d.models.product.Product
+import com.kepler88d.models.product.ProductModel
+import com.kepler88d.models.product.ProductModels
+import com.kepler88d.models.product.ProductModels.entityId
 import com.kepler88d.models.response.ProductResponse
 import io.ktor.server.routing.*
-import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
-import io.ktor.server.request.*
 
-fun productResponse(id: String): ProductResponse {
-    val product = Product.findById(id.toInt())!!
-    val models = ProductModel.find { ProductModels.productId eq product.id.value }
-    val images = Image.find { Images.productId eq product.id.value }
+fun productResponse(id: String): ProductResponse? {
+    val product = Product.findById(id.toInt()) ?: return null
+    val models = product.models
+    val images = product.images
 
    return ProductResponse(
         id = product.id.toString(),
@@ -46,5 +45,8 @@ fun Application.configureRouting() {
             }
         }
 
+        get("/order/all") {
+
+        }
     }
 }
