@@ -1,1 +1,1 @@
-rootProject.name = "OVG Store Backend"
+rootProject.name = "ovg-store-backend"
