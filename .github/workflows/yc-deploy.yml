@@ -41,8 +41,8 @@ jobs:
       with:
         yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
         container-name: ovg-store-backend
-        folder-id: bbajn5q2d74c********
-        revision-service-account-id: ajeqnasj95o7********
+        folder-id: bbaonqfc47fea9ij5un0
+        revision-service-account-id: aje73a60lmhkl7a1eg5n
         revision-cores: 1
         revision-memory: 512Mb
         revision-core-fraction: 100
