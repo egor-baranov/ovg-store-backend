@@ -14,7 +14,7 @@ jobs:
     steps:
     - name: Login to Yandex Cloud Container Registry
       id: login-cr
-      uses: yc-actions/yc-cr-login@v2
+      uses: yc-actions/yc-cr-login@v1
       with:
         yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
 
@@ -40,12 +40,12 @@ jobs:
       uses: yc-actions/yc-sls-container-deploy@v2
       with:
         yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
-        container-name: yc-action-demo
+        container-name: ovg-store-backend
         folder-id: bbajn5q2d74c********
         revision-service-account-id: ajeqnasj95o7********
         revision-cores: 1
         revision-memory: 512Mb
         revision-core-fraction: 100
         revision-concurrency: 8
-        revision-image-url: cr.yandex/crp00000000000000000/my-cr-repo:${{ github.sha }}
+        revision-image-url: cr.yandex/crp00000000000000000/ovg-store-backend:${{ github.sha }}
         revision-execution-timeout: 10
