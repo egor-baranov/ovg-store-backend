@@ -29,12 +29,6 @@ jobs:
         docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG .
         docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
         
-  deploy:
-    runs-on: ubuntu-latest
-  
-    steps:
-    - uses: actions/checkout@v2
-    
     - name: Deploy Serverless Container
       id: deploy-sls-container
       uses: yc-actions/yc-sls-container-deploy@v2
@@ -49,3 +43,5 @@ jobs:
         revision-concurrency: 8
         revision-image-url: cr.yandex/crptgu942c9vrl0r6qv5/ovg-store-backend:${{ github.sha }}
         revision-execution-timeout: 10
+    
+
