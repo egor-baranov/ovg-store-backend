@@ -1,4 +1,4 @@
-name: Yandex Cloud Serverless Container Deployment CI
+name: Yandex Cloud Deployment CI
 
 on:
   push:
