@@ -24,8 +24,8 @@ jobs:
     steps:
     - name: Build, tag, and push image to Yandex Cloud Container Registry
       env:
-        CR_REGISTRY: crp00000000000000000
-        CR_REPOSITORY: my-cr-repo
+        CR_REGISTRY: crptgu942c9vrl0r6qv5
+        CR_REPOSITORY: ovg-store
         IMAGE_TAG: ${{ github.sha }}
       run: |
         docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG .
@@ -47,5 +47,5 @@ jobs:
         revision-memory: 512Mb
         revision-core-fraction: 100
         revision-concurrency: 8
-        revision-image-url: cr.yandex/crp00000000000000000/ovg-store-backend:${{ github.sha }}
+        revision-image-url: cr.yandex/crptgu942c9vrl0r6qv5/ovg-store-backend:${{ github.sha }}
         revision-execution-timeout: 10
