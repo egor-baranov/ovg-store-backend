@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  login:
+  build:
     runs-on: ubuntu-latest
     
     steps:
@@ -17,11 +17,7 @@ jobs:
       uses: yc-actions/yc-cr-login@v1
       with:
         yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
-
-  build:
-    runs-on: ubuntu-latest
-    
-    steps:
+        
     - name: Build, tag, and push image to Yandex Cloud Container Registry
       env:
         CR_REGISTRY: crptgu942c9vrl0r6qv5
