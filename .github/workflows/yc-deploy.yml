@@ -39,13 +39,13 @@ jobs:
       with:
         yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
         container-name: ovg-store-backend
-        folder-id: bbaonqfc47fea9ij5un0
+        folder-id: b1glkci7sfhne6aa7sd6
         revision-service-account-id: aje73a60lmhkl7a1eg5n
         revision-cores: 1
         revision-memory: 512Mb
         revision-core-fraction: 100
         revision-concurrency: 8
-        revision-image-url: cr.yandex/${{ env.CR_REGISTRY }}/${{ env.CR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+        revision-image-url: cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
         revision-execution-timeout: 10
     
 
