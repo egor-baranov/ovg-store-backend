@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Yandex Cloud Serverless Container Deployment CI
 
 on:
   push:
