@@ -18,7 +18,7 @@ ktor {
 group = "com.kepler88d"
 version = "0.0.1"
 application {
-    mainClass.set("com.kepler88d.ApplicationKt")
+    mainClass.set("com.kepler88d.Main")
 
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
