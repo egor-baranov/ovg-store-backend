@@ -11,7 +11,7 @@ plugins {
 
 ktor {
     fatJar {
-        archiveFileName.set("fat.jar")
+        archiveFileName.set("ovg-store-backend.jar")
     }
 }
 

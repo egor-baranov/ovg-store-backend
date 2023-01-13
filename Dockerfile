@@ -5,5 +5,5 @@ RUN gradle buildFatJar --no-daemon
 
 FROM openjdk:11
 RUN mkdir /app
-COPY --from=build /home/gradle/src/build/libs/*.jar /app/
+COPY --from=build /home/gradle/src/build/libs/ovg-store-backend.jar /app/ovg-store-backend.jar
 ENTRYPOINT ["java","-jar","/app/ovg-store-backend.jar"]
