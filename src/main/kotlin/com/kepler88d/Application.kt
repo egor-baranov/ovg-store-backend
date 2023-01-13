@@ -7,12 +7,16 @@ import io.ktor.server.netty.*
 import com.kepler88d.plugins.*
 import java.lang.System.getenv
 
-fun main() {
-    embeddedServer(
-        Netty,
-        port = (getenv("PORT") ?: "8080").toInt(),
-        host = "0.0.0.0", module = Application::module
-    ).start(wait = true)
+open class Main {
+    companion object {
+        @JvmStatic fun main(args: Array<String>) {
+            embeddedServer(
+                Netty,
+                port = (getenv("PORT") ?: "8080").toInt(),
+                host = "0.0.0.0", module = Application::module
+            ).start(wait = true)
+        }
+    }
 }
 
 fun Application.module() {
