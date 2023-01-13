@@ -4,7 +4,6 @@ WORKDIR /home/gradle/src
 RUN gradle buildFatJar --no-daemon
 
 FROM ubuntu:22.04
-WORKDIR /root/
 RUN mkdir /app
 ONBUILD COPY --from=build /home/gradle/src/build/libs/*.jar /app/ovg-store-backend.jar
 ENTRYPOINT ["java","-jar","/app/ovg-store-backend.jar"]
