@@ -7,6 +7,7 @@ import com.kepler88d.models.product.ProductModel
 import com.kepler88d.models.product.ProductModels
 import com.kepler88d.models.product.ProductModels.entityId
 import com.kepler88d.models.response.ProductResponse
+import io.ktor.http.HttpStatusCode
 import io.ktor.server.routing.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
@@ -31,17 +32,7 @@ fun Application.configureRouting() {
 
     routing {
         get("/") {
-            call.respondText {
-                ProductResponse(
-                    id = "id",
-                    label = "Adidas x Pharrell Williams Basics Hoodie",
-                    description = "description",
-                    price = "7490",
-                    sizes = listOf("S", "M", "L", "XL", "2XL"),
-                    colors = listOf("Черный", "Белый", "Серый", "Бежевый"),
-                    images = listOf("https://storage.yandexcloud.net/ovg-store/img-2.jpg"),
-                ).toString()
-            }
+            call.respond(HttpStatusCode.OK)
         }
 
         get("/product/{id}") {
