@@ -39,7 +39,7 @@ fun Application.configureRouting() {
 
             call.respondText {
                 ProductResponse(
-                    id = "id",
+                    id = call.parameters["id"]!!,
                     label = "Adidas x Pharrell Williams Basics Hoodie",
                     description = "description",
                     price = "7490",
