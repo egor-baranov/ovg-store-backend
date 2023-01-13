@@ -13,27 +13,6 @@ ktor {
     fatJar {
         archiveFileName.set("fat.jar")
     }
-
-    docker {
-        localImageName.set("ovg-store-backend-docker-image")
-        imageTag.set("0.0.1-preview")
-
-        portMappings.set(listOf(
-            io.ktor.plugin.features.DockerPortMapping(
-                8080,
-                8080,
-                io.ktor.plugin.features.DockerPortMappingProtocol.TCP
-            )
-        ))
-
-        externalRegistry.set(
-            io.ktor.plugin.features.DockerImageRegistry.dockerHub(
-                appName = provider { "ovg-store-backend" },
-                username = providers.environmentVariable("DOCKER_HUB_USERNAME"),
-                password = providers.environmentVariable("DOCKER_HUB_PASSWORD")
-            )
-        )
-    }
 }
 
 group = "com.kepler88d"

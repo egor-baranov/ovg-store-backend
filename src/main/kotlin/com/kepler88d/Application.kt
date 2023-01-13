@@ -8,8 +8,11 @@ import com.kepler88d.plugins.*
 import java.lang.System.getenv
 
 fun main() {
-    embeddedServer(Netty, port = getenv("PORT").toInt(), host = "0.0.0.0", module = Application::module)
-        .start(wait = true)
+    embeddedServer(
+        Netty,
+        port = (getenv("PORT") ?: "8080").toInt(),
+        host = "0.0.0.0", module = Application::module
+    ).start(wait = true)
 }
 
 fun Application.module() {
