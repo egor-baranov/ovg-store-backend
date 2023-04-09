@@ -1,19 +1,17 @@
 package com.kepler88d.plugins
 
-import com.kepler88d.models.product.Image
-import com.kepler88d.models.product.Images
 import com.kepler88d.models.product.Product
-import com.kepler88d.models.product.ProductModel
-import com.kepler88d.models.product.ProductModels
-import com.kepler88d.models.product.ProductModels.entityId
 import com.kepler88d.models.response.ProductResponse
 import io.ktor.http.HttpStatusCode
-import io.ktor.server.routing.*
-import io.ktor.server.application.*
-import io.ktor.server.response.*
+import io.ktor.server.application.Application
+import io.ktor.server.application.call
+import io.ktor.server.response.respond
+import io.ktor.server.routing.get
+import io.ktor.server.routing.routing
+import java.util.UUID
 
 fun productResponse(id: String): ProductResponse? {
-    val product = Product.findById(id.toInt()) ?: return null
+    val product = Product.findById(UUID.fromString(id)) ?: return null
     val models = product.models
     val images = product.images
 
@@ -35,23 +33,5 @@ fun Application.configureRouting() {
             call.respond(HttpStatusCode.OK)
         }
 
-        get("/product/{id}") {
-
-            call.respondText {
-                ProductResponse(
-                    id = call.parameters["id"]!!,
-                    label = "Adidas x Pharrell Williams Basics Hoodie",
-                    description = "description",
-                    price = "7490",
-                    sizes = listOf("S", "M", "L", "XL", "2XL"),
-                    colors = listOf("Черный", "Белый", "Серый", "Бежевый"),
-                    images = listOf("https://storage.yandexcloud.net/ovg-store/img-2.jpg"),
-                ).toString()
-            }
-        }
-
-        get("/order/all") {
-
-        }
     }
 }

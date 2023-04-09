@@ -5,6 +5,9 @@ import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import com.kepler88d.plugins.*
+import com.kepler88d.plugins.routing.categoryRoutes
+import com.kepler88d.plugins.routing.orderRoutes
+import com.kepler88d.plugins.routing.productRoutes
 import java.lang.System.getenv
 
 open class Main {
@@ -22,4 +25,8 @@ open class Main {
 fun Application.module() {
     DatabaseFactory.init()
     configureRouting()
+
+    categoryRoutes()
+    orderRoutes()
+    productRoutes()
 }
