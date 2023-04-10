@@ -13,7 +13,7 @@ fun Application.productRoutes() {
     routing {
         get("/product/{id}") {
             call.respondText {
-                Json.encodeToString(ProductResponse.DEFAULT)
+                Json.encodeToString(ProductResponse.default())
             }
         }
     }

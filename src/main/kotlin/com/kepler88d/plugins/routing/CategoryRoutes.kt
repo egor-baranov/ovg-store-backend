@@ -17,7 +17,10 @@ fun Application.categoryRoutes() {
                 Json.encodeToString(
                     CategoriesResponse(
                         categories = mapOf(
-                            "Футболки" to listOf(ProductResponse.DEFAULT)
+                            "Футболки" to (0..4).map { ProductResponse.default() },
+                            "Толстовки" to (0..6).map { ProductResponse.default() },
+                            "Аксессуары" to (0..5).map { ProductResponse.default() },
+                            "Скидки" to (0..3).map { ProductResponse.default() }
                         )
                     )
                 )
