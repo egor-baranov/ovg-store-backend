@@ -41,11 +41,11 @@ jobs:
         container-name: ovg-store-backend
         folder-id: b1glkci7sfhne6aa7sd6
         revision-service-account-id: aje73a60lmhkl7a1eg5n
-        revision-cores: 1
+        revision-cores: 10
         revision-memory: 512Mb
         revision-core-fraction: 100
         revision-concurrency: 8
         revision-image-url: cr.yandex/${{ env.CR_REGISTRY }}/${{ env.CR_REPOSITORY }}:${{ env.IMAGE_TAG }}
-        revision-execution-timeout: 10
+        revision-execution-timeout: 5
     
 
