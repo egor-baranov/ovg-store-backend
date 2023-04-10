@@ -20,7 +20,7 @@ fun Application.categoryRoutes() {
                     CategoriesResponse(
                         categories = CATEGORIES.associateWith { key ->
                             (0..4).map {
-                                ProductResponse.default().copy(id = "$key$it")
+                                ProductResponse.default(id = "$key$it")
                             }
                         }
                     )
