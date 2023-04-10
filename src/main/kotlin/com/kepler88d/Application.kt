@@ -8,11 +8,15 @@ import com.kepler88d.plugins.*
 import com.kepler88d.plugins.routing.categoryRoutes
 import com.kepler88d.plugins.routing.orderRoutes
 import com.kepler88d.plugins.routing.productRoutes
+import io.ktor.serialization.kotlinx.json.json
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import kotlinx.serialization.json.Json
 import java.lang.System.getenv
 
 open class Main {
     companion object {
-        @JvmStatic fun main(args: Array<String>) {
+        @JvmStatic
+        fun main(args: Array<String>) {
             embeddedServer(
                 Netty,
                 port = (getenv("PORT") ?: "8080").toInt(),
@@ -23,6 +27,13 @@ open class Main {
 }
 
 fun Application.module() {
+    install(ContentNegotiation) {
+        json(Json {
+            prettyPrint = true
+            isLenient = true
+        })
+    }
+
     DatabaseFactory.init()
     configureRouting()
 

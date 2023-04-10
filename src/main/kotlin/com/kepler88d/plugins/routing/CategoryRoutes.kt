@@ -1,7 +1,7 @@
 package com.kepler88d.plugins.routing
 
 import com.kepler88d.models.response.CategoriesResponse
-import com.kepler88d.models.response.ProductResponse
+import com.kepler88d.models.response.DEFAULT_PRODUCT_RESPONSE
 import io.ktor.server.application.Application
 import io.ktor.server.application.call
 import io.ktor.server.response.respondText
@@ -14,7 +14,7 @@ fun Application.categoryRoutes() {
             call.respondText {
                 CategoriesResponse(
                     categories = mapOf(
-                        "Футболки" to listOf(ProductResponse.DEFAULT)
+                        "Футболки" to listOf(DEFAULT_PRODUCT_RESPONSE)
                     )
                 ).toString()
             }

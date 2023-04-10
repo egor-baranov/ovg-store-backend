@@ -27,11 +27,9 @@ fun productResponse(id: String): ProductResponse? {
 }
 
 fun Application.configureRouting() {
-
     routing {
         get("/") {
             call.respond(HttpStatusCode.OK)
         }
-
     }
 }
