@@ -13,10 +13,9 @@ data class ProductResponse(
     val images: List<String>
 ) {
     companion object {
-        private var id = 0
-         fun default() = ProductResponse(
-            id = (id++).toString(),
-            label = "Product №$id",
+         fun default(id: String = "id") = ProductResponse(
+            id = id,
+            label = "Product $id",
             description = "description",
             price = ((20..90).random() * 100 + 90).toString(),
             sizes = listOf("S", "M", "L", "XL", "2XL"),

@@ -10,18 +10,19 @@ import io.ktor.server.routing.routing
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
+val CATEGORIES = listOf("Футболки","Толстовки", "Аксессуары", "Скидки" )
+
 fun Application.categoryRoutes() {
     routing {
         get("/category/all") {
             call.respondText {
                 Json.encodeToString(
                     CategoriesResponse(
-                        categories = mapOf(
-                            "Футболки" to (0..4).map { ProductResponse.default() },
-                            "Толстовки" to (0..6).map { ProductResponse.default() },
-                            "Аксессуары" to (0..5).map { ProductResponse.default() },
-                            "Скидки" to (0..3).map { ProductResponse.default() }
-                        )
+                        categories = CATEGORIES.associateWith { key ->
+                            (0..4).map {
+                                ProductResponse.default().copy(id = "$key$it")
+                            }
+                        }
                     )
                 )
             }
