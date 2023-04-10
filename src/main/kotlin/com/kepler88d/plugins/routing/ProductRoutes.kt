@@ -1,6 +1,6 @@
 package com.kepler88d.plugins.routing
 
-import com.kepler88d.models.response.DEFAULT_PRODUCT_RESPONSE
+import com.kepler88d.models.response.ProductResponse
 import io.ktor.server.application.Application
 import io.ktor.server.application.call
 import io.ktor.server.response.respondText
@@ -13,7 +13,7 @@ fun Application.productRoutes() {
     routing {
         get("/product/{id}") {
             call.respondText {
-                Json.encodeToString(DEFAULT_PRODUCT_RESPONSE)
+                Json.encodeToString(ProductResponse.DEFAULT)
             }
         }
     }

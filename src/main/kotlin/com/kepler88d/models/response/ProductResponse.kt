@@ -12,15 +12,15 @@ data class ProductResponse(
     val colors: List<String>,
     val images: List<String>
 ) {
-
+    companion object {
+        val DEFAULT = ProductResponse(
+            id = "0",
+            label = "Adidas x Pharrell Williams Basics Hoodie",
+            description = "description",
+            price = "7490",
+            sizes = listOf("S", "M", "L", "XL", "2XL"),
+            colors = listOf("Черный", "Белый", "Серый", "Бежевый"),
+            images = listOf("https://storage.yandexcloud.net/ovg-store/img-2.jpg"),
+        )
+    }
 }
-
-val DEFAULT_PRODUCT_RESPONSE = ProductResponse(
-    id = "0",
-    label = "Adidas x Pharrell Williams Basics Hoodie",
-    description = "description",
-    price = "7490",
-    sizes = listOf("S", "M", "L", "XL", "2XL"),
-    colors = listOf("Черный", "Белый", "Серый", "Бежевый"),
-    images = listOf("https://storage.yandexcloud.net/ovg-store/img-2.jpg"),
-)
