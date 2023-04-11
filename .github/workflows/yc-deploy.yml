@@ -47,5 +47,6 @@ jobs:
         revision-concurrency: 16
         revision-image-url: cr.yandex/${{ env.CR_REGISTRY }}/${{ env.CR_REPOSITORY }}:${{ env.IMAGE_TAG }}
         revision-execution-timeout: 3
+        revision-provisioned: true
     
 
