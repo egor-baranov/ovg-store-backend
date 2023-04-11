@@ -18,18 +18,21 @@ val CATEGORIES = mapOf(
 )
 
 fun Application.categoryRoutes() {
+
+    val categoriesResponse = Json.encodeToString(
+        CategoriesResponse(
+            categories = CATEGORIES.entries.associate { entry ->
+                entry.key to (0..4).map {
+                    ProductResponse.default(id = "${entry.value}$it")
+                }
+            }
+        )
+    )
+
     routing {
         get("/category/all") {
             call.respondText {
-                Json.encodeToString(
-                    CategoriesResponse(
-                        categories = CATEGORIES.entries.associate { entry ->
-                            entry.key to (0..4).map {
-                                ProductResponse.default(id = "${entry.value}$it")
-                            }
-                        }
-                    )
-                )
+                categoriesResponse
             }
         }
     }
