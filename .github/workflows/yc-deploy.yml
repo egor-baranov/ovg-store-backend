@@ -41,7 +41,7 @@ jobs:
         container-name: ovg-store-backend
         folder-id: b1glkci7sfhne6aa7sd6
         revision-service-account-id: aje73a60lmhkl7a1eg5n
-        revision-cores: 5
+        revision-cores: 1
         revision-memory: 512Mb
         revision-core-fraction: 100
         revision-concurrency: 16
