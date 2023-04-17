@@ -25,7 +25,8 @@ fun Application.categoryRoutes() {
                 entry.key to (0..4).map {
                     ProductResponse.default(id = "${entry.value}$it")
                 }
-            }
+            },
+            titleIds = CATEGORIES
         )
     )
 
