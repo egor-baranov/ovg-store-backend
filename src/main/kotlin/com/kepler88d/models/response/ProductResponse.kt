@@ -13,14 +13,14 @@ data class ProductResponse(
     val images: List<String>
 ) {
     companion object {
-         fun default(id: String = "id") = ProductResponse(
+        fun default(id: String = "id") = ProductResponse(
             id = id,
             label = "Product $id",
             description = "description",
             price = ((20..90).random() * 100 + 90).toString(),
             sizes = listOf("S", "M", "L", "XL", "2XL"),
             colors = listOf("Черный", "Белый", "Серый", "Бежевый"),
-            images = listOf("https://storage.yandexcloud.net/ovg-store/img-2.jpg"),
+            images = (3..6).random().let { 0 until it }.map { "https://storage.yandexcloud.net/ovg-store/img-2.jpg" },
         )
     }
 }
