@@ -8,6 +8,7 @@ import com.kepler88d.plugins.*
 import com.kepler88d.plugins.routing.categoryRoutes
 import com.kepler88d.plugins.routing.orderRoutes
 import com.kepler88d.plugins.routing.productRoutes
+import com.kepler88d.plugins.routing.searchRoutes
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import kotlinx.serialization.json.Json
@@ -40,4 +41,5 @@ fun Application.module() {
     categoryRoutes()
     orderRoutes()
     productRoutes()
+    searchRoutes()
 }
